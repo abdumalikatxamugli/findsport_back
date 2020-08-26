@@ -1,0 +1,1 @@
+<?php /**PATH /opt/lampp/htdocs/edupark/resources/views/admin/dashboard.blade.php ENDPATH**/ ?>
