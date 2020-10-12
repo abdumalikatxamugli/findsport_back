@@ -1,0 +1,1 @@
+<?php /**PATH /opt/lampp/htdocs/findsport/resources/views/admin/dashboard.blade.php ENDPATH**/ ?>

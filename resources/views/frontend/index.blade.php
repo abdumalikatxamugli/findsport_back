@@ -1,5 +1,7 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layout')
 
 @section('content')
+
 	@include($body)
+
 @endsection
