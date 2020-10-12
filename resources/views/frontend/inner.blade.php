@@ -1,12 +1,13 @@
-<html>
+@section('title')
+Findsport.uz
+@endsection
 
-<head>
-    <link rel="stylesheet" href="assets/inner.3f453493.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="assets/inner.c6596996.css">
-</head>
+@section('css')
+<link rel="stylesheet" href="{{asset('assets/inner.3f453493.css')}}">
+@endsection
 
-<body>
+@section('content')
+<main style="margin-top:120px;">
     <div class="container">
         <div class="title"> <a href="assets#"> <i class="fas fa-arrow-left"></i> </a>
             <h1>Настольный теннис на 1905 года</h1>
@@ -19,9 +20,9 @@
             <div class="col-md-8">
                 <div class="slider-wrapper">
                     <div class="inner-slider">
-                        <div> <img src="assets/pitch.78265cba.jpg" alt=""> </div>
-                        <div> <img src="assets/volleyball.5368c7b2.jpg" alt=""> </div>
-                        <div> <img src="assets/football.feeb18a4.jpg" alt=""> </div>
+                        <div> <img src="{{asset('assets/pitch.78265cba.jpg')}}" alt=""> </div>
+                        <div> <img src="{{asset('assets/volleyball.5368c7b2.jpg')}}" alt=""> </div>
+                        <div> <img src="{{asset('assets/football.feeb18a4.jpg')}}" alt=""> </div>
                     </div>
                     <div class="controls">
                         <div class="inner-slider-left"> <i class="fas fa-arrow-left"></i> </div>
@@ -55,7 +56,9 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-3"> <img src="assets/motivation-comission.e0eb7666.svg" alt=""> </div>
+                        <div class="col-md-3"> 
+                            <img src="{{asset('assets/motivation-comission.e0eb7666.svg')}}" alt=""> 
+                        </div>
                         <div class="col-md-9"> <span> Не платите лишнего </span>
                             <p> Мы не берем комиссию и не завышаем цены. Все цены на FindSport.ru формируются администрацией площадок. </p>
                         </div>
@@ -63,7 +66,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-3"> <img src="assets/motivation-payment.ebbcf073.svg" alt=""> </div>
+                        <div class="col-md-3"> 
+                            <img src="{{asset('assets/motivation-payment.ebbcf073.svg')}}" alt=""> 
+                        </div>
                         <div class="col-md-9"> <span> Не платите лишнего </span>
                             <p> Оплачивайте как вам удобно - банковской картой - наличными на площадке - счетом для юридических лиц </p>
                         </div>
@@ -81,7 +86,11 @@
             <p> Для долгосрочного бронирования свяжитесь с менеджером по телефону указанному в контактах. Брони на выходные дни оплачиваются заранее, до 18:00 в пятницу. </p>
         </div>
     </div>
-    <script src="assets/inner.809837ad.js"></script>
-</body>
+</main>
 
-</html>
+@endsection
+
+@section('js')
+<script src="{{asset('assets/inner.809837ad.js')}}"></script>
+<script src="{{asset('assets/main.1a031342.js')}}"></script>
+@endsection
