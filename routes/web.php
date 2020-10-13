@@ -103,7 +103,7 @@ Route::get('/{l}/clubs', 'Frontend@clubs')->name('clubs');
 // media example
 Route::get('/{l}/media', 'Frontend@media')->name('media');
 
-
+Route::get('/{l}/sections/{id}','Frontend@section')->name('section');
 
 // ============== Storage Helper Routes =====================
 Route::get('img/{master_table}/{name}', function ($master_table,$name) {

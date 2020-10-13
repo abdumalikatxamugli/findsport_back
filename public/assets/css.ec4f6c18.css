@@ -10400,7 +10400,7 @@ html {
 
 @font-face {
     font-family: Opensans-regular;
-    src: url(/OpenSans-regular.45f796b6.ttf) format("truetype")
+    src: url(./OpenSans-regular.45f796b6.ttf) format("truetype")
 }
 
 html {
@@ -10937,7 +10937,8 @@ textarea:focus {
     left: 100%
 }
 
-.modal {
+.modal,
+.coach-modal {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -11004,7 +11005,8 @@ textarea:focus {
     border-color: #66afe9
 }
 
-.modal .backdrop {
+.modal .backdrop,
+.coach-modal .backdrop {
     background-color: rgba(0, 0, 0, .5);
     width: 100%;
     height: 100%;
@@ -11739,8 +11741,9 @@ footer .contacts span {
     flex-wrap: wrap;
     overflow-y: auto
 }
-.mobile-scroll .col-md-3{
-	margin-bottom:20px;
+
+.mobile-scroll .col-md-3 {
+    margin-bottom: 20px;
 }
 
 @media (max-width:576px) {
@@ -11751,3 +11754,36 @@ footer .contacts span {
 }
 
 /*# sourceMappingURL=/css.ec4f6c18.css.map */
+
+@media (max-width:992px) {
+    .error-msg {
+        width: 100%;
+        text-align: right;
+        margin-bottom: 15px;
+    }
+
+    footer .social {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width:768px) {
+    .error-msg {
+        text-align: left;
+    }
+}
+
+@media (max-width:576px) {
+    .modal {
+        position: fixed;
+    }
+
+    .modal form {
+        width: 90%;
+        top: 5%;
+    }
+
+    .modal form .inputs {
+        grid-template-columns: 1fr;
+    }
+}

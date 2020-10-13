@@ -41,4 +41,7 @@ class Frontend extends Controller
     $data['iterable']=Clubs::latest('id')->take(10)->get();
     return $this->view('clubs',$data, $req);
   } 
+  public function section(Request $req){
+    return $this->view('inner',[], $req);
+  }
 }
