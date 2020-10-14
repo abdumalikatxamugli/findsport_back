@@ -1,6 +1,6 @@
 @php
 use App\Clubs;
-
+use App\Sport;
 $langs=['uz', 'oz', 'ru'];
 $days=['Mon', "Tue", "Wed", "Thi", "Fri", "Sat", "Sun"];
 $interval=[7, 22];
@@ -24,6 +24,21 @@ $interval=[7, 22];
 	>{{json_decode($place->description)->$lang}}
 	</textarea>
 	@endforeach	
+	<br>
+	<label>Rate</label>
+	<input type="text" name="rate" value="{{$place->rate}}">
+	<br>
+	<label>Capacity</label>
+	<input type="text" name="capacity" value="{{$place->capacity}}">
+	<br>
+	<label>Sports</label>
+	@foreach(Sport::all() as $index=>$sport)
+		<input type="checkbox" name="sport[{{$sport->id}}]"
+			{{isset(json_decode($place->sport, true)[$sport->id])?"checked":null}}
+		>
+		{{json_decode($sport->title)->uz}}
+		<br>
+	@endforeach
 	<br>
 	<label>price</label>
 	<table>

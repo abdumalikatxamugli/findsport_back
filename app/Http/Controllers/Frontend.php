@@ -42,6 +42,16 @@ class Frontend extends Controller
     return $this->view('clubs',$data, $req);
   } 
   public function section(Request $req){
-    return $this->view('inner',[], $req);
+    return $this->view('section_inner',[], $req);
   }
+  public function club(Request $req){
+    return $this->view('club_inner',[], $req);
+  }
+  public function place(Request $req){
+    $data['place']=Places::where(['id'=>$req->id])->first();
+    if($data['place'])
+      return $this->view('place_inner',$data, $req);
+    return abort(404);
+  }
+
 }

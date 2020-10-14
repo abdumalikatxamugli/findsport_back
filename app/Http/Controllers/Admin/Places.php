@@ -28,10 +28,6 @@ Class Places{
 						$model->{$name}=json_encode($value);
 						continue;
 					}
-					if(is_array($value)){
-						$model->{$name}=json_encode($value);
-						continue;
-					}
 					if($name=='image'){
 						$model->{$name}=$req->file($name)->store('places');
 						continue;

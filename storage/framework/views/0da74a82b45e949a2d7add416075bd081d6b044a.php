@@ -1,6 +1,6 @@
 <?php
 use App\Clubs;
-
+use App\Sport;
 $langs=['uz', 'oz', 'ru'];
 $days=['Mon', "Tue", "Wed", "Thi", "Fri", "Sat", "Sun"];
 $interval=[7, 22];
@@ -26,6 +26,23 @@ $interval=[7, 22];
 
 	</textarea>
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
+	<br>
+	<label>Rate</label>
+	<input type="text" name="rate" value="<?php echo e($place->rate); ?>">
+	<br>
+	<label>Capacity</label>
+	<input type="text" name="capacity" value="<?php echo e($place->capacity); ?>">
+	<br>
+	<label>Sports</label>
+	<?php $__currentLoopData = Sport::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$sport): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+		<input type="checkbox" name="sport[<?php echo e($sport->id); ?>]"
+			<?php echo e(isset(json_decode($place->sport, true)[$sport->id])?"checked":null); ?>
+
+		>
+		<?php echo e(json_decode($sport->title)->uz); ?>
+
+		<br>
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	<br>
 	<label>price</label>
 	<table>
