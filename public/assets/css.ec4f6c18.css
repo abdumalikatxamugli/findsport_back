@@ -10937,8 +10937,7 @@ textarea:focus {
     left: 100%
 }
 
-.modal,
-.coach-modal {
+.modal {
     position: absolute;
     bottom: 0;
     width: 100%;

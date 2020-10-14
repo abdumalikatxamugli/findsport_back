@@ -10565,6 +10565,10 @@ html {
   height: 100vh;
   width: 100vw;
   position: fixed;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  /* transition: all .2s ease-in-out */
 }
 
 .coach-modal .wrapper {
