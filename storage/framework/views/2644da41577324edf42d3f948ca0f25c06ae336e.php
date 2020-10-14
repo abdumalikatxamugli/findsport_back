@@ -1,6 +1,6 @@
 <?php
 use App\Clubs;
-
+use App\Sport;
 $langs=['uz', 'oz', 'ru'];
 $days=['Mon', "Tue", "Wed", "Thi", "Fri", "Sat", "Sun"];
 $interval=[7, 22];
@@ -16,10 +16,23 @@ $interval=[7, 22];
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
 	<br>
 	<?php $__currentLoopData = $langs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-	<label>Description</label>
-	<textarea name="description[<?php echo e($lang); ?>]">
-	</textarea>
+		<label>Description</label>
+		<textarea name="description[<?php echo e($lang); ?>]">
+		</textarea>
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
+	<br>
+	<label>Rate</label>
+	<input type="text" name="rate">
+	<br>
+	<label>Capacity</label>
+	<input type="text" name="capacity">
+	<br>
+	<label>Sports</label>
+	<?php $__currentLoopData = Sport::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$sport): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+		<input type="checkbox" name="sport[<?php echo e($sport->id); ?>]"><?php echo e(json_decode($sport->title)->uz); ?>
+
+		<br>
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	<br>
 	<label>price</label>
 	<table>
@@ -34,11 +47,11 @@ $interval=[7, 22];
 			<tr>
 				<td><?php echo e($i); ?>-<?php echo e($i+0.5); ?></td>
 				<?php $__currentLoopData = $days; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $day): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-					<td>
-						<input type="text" style="width:130px" 
-						name="price[<?php echo e($day); ?>][<?php echo e($i); ?>]"
-						>
-					</td>
+				<td>
+					<input type="text" style="width:130px" 
+					name="price[<?php echo e($day); ?>][<?php echo e($i); ?>]"
+					>
+				</td>
 				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			</tr>
 			<?php endfor; ?>
@@ -47,24 +60,22 @@ $interval=[7, 22];
 	<br>
 	<label>Attributes</label>
 	<ul id="attr">
-		
-	
-	<li>
-		<?php $__currentLoopData = $langs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+		<li>
+			<?php $__currentLoopData = $langs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 			<input type="text" name="attributes[0][<?php echo e($lang); ?>]">
-		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
-	</li>
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
+		</li>
 	</ul>
 	<button onclick="add_attr(event)">add</button>
 	<br>
 	<label>Club</label>
 	<select name="club_id">
 		<?php $__currentLoopData = Clubs::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $club): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-			<option value="<?php echo e($club->id); ?>">
-			    <?php echo e($club->id); ?> 
-			    <?php echo e(json_decode($club->title)->uz); ?>
+		<option value="<?php echo e($club->id); ?>">
+			<?php echo e($club->id); ?> 
+			<?php echo e(json_decode($club->title)->uz); ?>
 
-			</option>
+		</option>
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	</select>
 	<label>Parameters</label>
@@ -74,31 +85,31 @@ $interval=[7, 22];
 	<br>
 	<label>Cover</label>
 	<?php $__currentLoopData = $langs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-		<input type="text" name="cover[<?php echo e($lang); ?>]">
+	<input type="text" name="cover[<?php echo e($lang); ?>]">
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	<br>	
 	<label>Type</label>
 	<?php $__currentLoopData = $langs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-		<input type="text" name="type[<?php echo e($lang); ?>]">
+	<input type="text" name="type[<?php echo e($lang); ?>]">
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
 	<br>
 	<label>Address</label>
 	<?php $__currentLoopData = $langs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-		<input type="text" name="address[<?php echo e($lang); ?>]">
+	<input type="text" name="address[<?php echo e($lang); ?>]">
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
 	<br>
 	<label>Metro</label>
 	<?php $__currentLoopData = $langs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-		<input type="text" name="metro[<?php echo e($lang); ?>]">
+	<input type="text" name="metro[<?php echo e($lang); ?>]">
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
 	<br>
 	<label>Location</label>
-		<input type="text" name="location[long]">
-		<input type="text" name="location[lat]">
+	<input type="text" name="location[long]">
+	<input type="text" name="location[lat]">
 	<br>
 	<label>Open_time</label>
-		<input type="text" name="open_time[start]">
-		<input type="text" name="open_time[finish]">
+	<input type="text" name="open_time[start]">
+	<input type="text" name="open_time[finish]">
 	<br>
 	<button>Submit</button>
 	<script>
