@@ -1,12 +1,12 @@
-@section('title')
+<?php $__env->startSection('title'); ?>
 Findsport.uz
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('css')
-<link rel="stylesheet" href="{{asset('assets/inner.3f453493.css')}}">
-@endsection
+<?php $__env->startSection('css'); ?>
+<link rel="stylesheet" href="<?php echo e(asset('assets/inner.3f453493.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <main style="margin-top:120px;">
   <div class="container">
     <div class="title"> <a href="assets#"> <i class="fas fa-arrow-left"></i> </a>
@@ -20,9 +20,9 @@ Findsport.uz
       <div class="col-md-8">
         <div class="slider-wrapper">
           <div class="inner-slider">
-            <div> <img src="{{asset('assets/pitch.78265cba.jpg')}}" alt=""> </div>
-            <div> <img src="{{asset('assets/volleyball.5368c7b2.jpg')}}" alt=""> </div>
-            <div> <img src="{{asset('assets/football.feeb18a4.jpg')}}" alt=""> </div>
+            <div> <img src="<?php echo e(asset('assets/pitch.78265cba.jpg')); ?>" alt=""> </div>
+            <div> <img src="<?php echo e(asset('assets/volleyball.5368c7b2.jpg')); ?>" alt=""> </div>
+            <div> <img src="<?php echo e(asset('assets/football.feeb18a4.jpg')); ?>" alt=""> </div>
           </div>
           <div class="controls">
             <div class="inner-slider-left"> <i class="fas fa-arrow-left"></i> </div>
@@ -139,7 +139,7 @@ Findsport.uz
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-3">
-              <img src="{{asset('assets/motivation-comission.e0eb7666.svg')}}" alt="">
+              <img src="<?php echo e(asset('assets/motivation-comission.e0eb7666.svg')); ?>" alt="">
             </div>
             <div class="col-md-9"> <span> Не платите лишнего </span>
               <p> Мы не берем комиссию и не завышаем цены. Все цены на FindSport.ru формируются администрацией площадок. </p>
@@ -149,7 +149,7 @@ Findsport.uz
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-3">
-              <img src="{{asset('assets/motivation-payment.ebbcf073.svg')}}" alt="">
+              <img src="<?php echo e(asset('assets/motivation-payment.ebbcf073.svg')); ?>" alt="">
             </div>
             <div class="col-md-9"> <span> Не платите лишнего </span>
               <p> Оплачивайте как вам удобно - банковской картой - наличными на площадке - счетом для юридических лиц </p>
@@ -175,11 +175,11 @@ Findsport.uz
       <h2>Наши тренеры</h2>
       <div class="items">
         <div class="item" data-title='title-1' data-content='<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>' data-img='http://localhost/findsport_back/public/assets/images/coach.jpg'>
-          <img src="{{asset('assets/images/coach.jpg')}}" alt="coaches">
+          <img src="<?php echo e(asset('assets/images/coach.jpg')); ?>" alt="coaches">
           <h6>Шишко Назар Иосифович</h6>
         </div>
         <div class="item" data-title='title-2' data-content='<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>' data-img='http://localhost/findsport_back/public/assets/images/coach.jpg'>
-          <img src="{{asset('assets/images/coach.jpg')}}" alt="coaches">
+          <img src="<?php echo e(asset('assets/images/coach.jpg')); ?>" alt="coaches">
           <h6>Шишко Назар Иосифович</h6>
         </div>
       </div>
@@ -196,9 +196,9 @@ Findsport.uz
 
 </main>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('js')
-<script src="{{asset('assets/inner.809837ad.js')}}"></script>
-<script src="{{asset('assets/main.1a031342.js')}}"></script>
-@endsection
+<?php $__env->startSection('js'); ?>
+<script src="<?php echo e(asset('assets/inner.809837ad.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/main.1a031342.js')); ?>"></script>
+<?php $__env->stopSection(); ?><?php /**PATH C:\xampp\htdocs\findsport_back\resources\views/frontend/section_inner.blade.php ENDPATH**/ ?>
