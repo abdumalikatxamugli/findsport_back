@@ -1,30 +1,32 @@
-@php
+<?php
 use App\Sport;
-@endphp
+?>
 
-@section('title')
+<?php $__env->startSection('title'); ?>
 Findsport.uz
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('css')
-<link rel="stylesheet" href="{{asset('assets/inner.3f453493.css')}}">
-@endsection
+<?php $__env->startSection('css'); ?>
+<link rel="stylesheet" href="<?php echo e(asset('assets/inner.3f453493.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <main style="margin-top:120px;">
   <div class="container">
     <div class="title"> <a href="assets#"> <i class="fas fa-arrow-left"></i> </a>
-      <h1>{{json_decode($place->title)->$l}}</h1>
+      <h1><?php echo e(json_decode($place->title)->$l); ?></h1>
     </div>
     <div class="details">
       <div class="detail">
         <i class="fas fa-map-marker-alt"></i>
-        <span>{{json_decode($place->address)->$l}}</span>
+        <span><?php echo e(json_decode($place->address)->$l); ?></span>
       </div>
       <div class="detail"> <i class="far fa-clock"></i>
         <span>
-          с {{json_decode($place->open_time)->start}}
-          до {{json_decode($place->open_time)->finish}}
+          с <?php echo e(json_decode($place->open_time)->start); ?>
+
+          до <?php echo e(json_decode($place->open_time)->finish); ?>
+
         </span>
       </div>
     </div>
@@ -32,9 +34,9 @@ Findsport.uz
       <div class="col-md-8">
         <div class="slider-wrapper">
           <div class="inner-slider">
-            <div> <img src="{{asset('assets/pitch.78265cba.jpg')}}" alt=""> </div>
-            <div> <img src="{{asset('assets/volleyball.5368c7b2.jpg')}}" alt=""> </div>
-            <div> <img src="{{asset('assets/football.feeb18a4.jpg')}}" alt=""> </div>
+            <div> <img src="<?php echo e(asset('assets/pitch.78265cba.jpg')); ?>" alt=""> </div>
+            <div> <img src="<?php echo e(asset('assets/volleyball.5368c7b2.jpg')); ?>" alt=""> </div>
+            <div> <img src="<?php echo e(asset('assets/football.feeb18a4.jpg')); ?>" alt=""> </div>
           </div>
           <div class="controls">
             <div class="inner-slider-left"> <i class="fas fa-arrow-left"></i> </div>
@@ -47,43 +49,50 @@ Findsport.uz
         <div class="params">
           <div class="param">
             <span>
-              {{json_decode($place->params)->height}}
+              <?php echo e(json_decode($place->params)->height); ?>
+
               ×
-              {{json_decode($place->params)->width}}
+              <?php echo e(json_decode($place->params)->width); ?>
+
               ×
-              {{json_decode($place->params)->length}}
+              <?php echo e(json_decode($place->params)->length); ?>
+
             </span>
           </div>
           <div class="param">
             <span>
-              {{json_decode($place->cover)->$l}}
+              <?php echo e(json_decode($place->cover)->$l); ?>
+
             </span>
           </div>
           <div class="param"> <span>|</span> </div>
           <div class="param">
             <span>
-              {{json_decode($place->type)->$l}}
+              <?php echo e(json_decode($place->type)->$l); ?>
+
             </span>
           </div>
         </div>
-        <div class="capacity"> Вмещает игроков — {{$place->capacity}} </div>
+        <div class="capacity"> Вмещает игроков — <?php echo e($place->capacity); ?> </div>
         <hr>
         <div class="sport-tags">
+          <?php $__currentLoopData = json_decode($place->sport, true); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <?php if($sport=Sport::where(['id'=>$index])->first()): ?>
+          <span>
+            <?php echo e(json_decode($sport->title)->$l); ?>
 
-          @foreach(Sport::find($place->sports())->all() as $index=>$val)
-            <span>
-              {{json_decode($val->title)->$l}}
-            </span>
-          @endforeach
+          </span>
+          <?php endif; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         <hr>
         <ul class="attrs">
-          @foreach(json_decode($place->attributes, true) as $attr)
+          <?php $__currentLoopData = json_decode($place->attributes, true); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attr): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <li>
-            <span>{{$attr[$l]}}</span>
+            <span><?php echo e($attr[$l]); ?></span>
             <i class="fa fa-check"></i>
           </li>
-          @endforeach
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
       </div>
     </div>
@@ -94,7 +103,7 @@ Findsport.uz
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-3">
-              <img src="{{asset('assets/motivation-comission.e0eb7666.svg')}}" alt="">
+              <img src="<?php echo e(asset('assets/motivation-comission.e0eb7666.svg')); ?>" alt="">
             </div>
             <div class="col-md-9"> <span> Не платите лишнего </span>
               <p> Мы не берем комиссию и не завышаем цены. Все цены на FindSport.ru формируются администрацией площадок. </p>
@@ -104,7 +113,7 @@ Findsport.uz
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-3">
-              <img src="{{asset('assets/motivation-payment.ebbcf073.svg')}}" alt="">
+              <img src="<?php echo e(asset('assets/motivation-payment.ebbcf073.svg')); ?>" alt="">
             </div>
             <div class="col-md-9"> <span> Не платите лишнего </span>
               <p> Оплачивайте как вам удобно - банковской картой - наличными на площадке - счетом для юридических лиц </p>
@@ -168,14 +177,15 @@ Findsport.uz
   </div>
   <div class="content">
     <div class="container">
-      {{json_decode($place->description)->$l}}
+      <?php echo e(json_decode($place->description)->$l); ?>
+
     </div>
   </div>
 </main>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('js')
-<script src="{{asset('assets/inner.809837ad.js')}}"></script>
-<script src="{{asset('assets/main.1a031342.js')}}"></script>
-@endsection
+<?php $__env->startSection('js'); ?>
+<script src="<?php echo e(asset('assets/inner.809837ad.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/main.1a031342.js')); ?>"></script>
+<?php $__env->stopSection(); ?><?php /**PATH C:\xampp\htdocs\findsport_back\resources\views/frontend/place_inner.blade.php ENDPATH**/ ?>

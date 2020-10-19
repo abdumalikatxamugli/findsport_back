@@ -46,11 +46,16 @@ modalBtn.forEach(element => {
   })
 });
 
+if(modalBackdrop){
+  modalBackdrop.addEventListener('click', () => {
+    setTimeout(function () {
+      coachModalContent.innerHTML = '';
+    }, 300);
+    body.classList.remove('coach-modal-opened');
+    window.onscroll = function () { };
+  })
+}
 
-modalBackdrop.addEventListener('click', () => {
-  setTimeout(function () {
-    coachModalContent.innerHTML = '';
-  }, 300);
-  body.classList.remove('coach-modal-opened');
-  window.onscroll = function () { };
-})
+
+
+

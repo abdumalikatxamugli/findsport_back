@@ -10937,8 +10937,7 @@ textarea:focus {
     left: 100%
 }
 
-.modal,
-.coach-modal {
+.modal {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -11753,9 +11752,63 @@ footer .contacts span {
     }
 }
 
+.table .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.table .content-table thead tr {
+    background-color: #009879;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table .content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.table .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table .content-table tbody tr td:first-child {
+    opacity: .5;
+}
+
+.table .content-table tbody tr:hover td:first-child {
+    opacity: 1;
+}
+
+.table .content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
 /*# sourceMappingURL=/css.ec4f6c18.css.map */
 
 @media (max-width:992px) {
+    .table {
+        border-radius: 5px 5px 0 0;
+        overflow: auto;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        margin: 25px 0;
+    }
+
+    .table .content-table {
+        margin: 0;
+    }
+
     .error-msg {
         width: 100%;
         text-align: right;

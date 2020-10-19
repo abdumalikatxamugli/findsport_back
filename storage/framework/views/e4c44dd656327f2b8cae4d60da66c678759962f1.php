@@ -7,9 +7,7 @@ Findsport.uz
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-
 <main style="margin-top:120px;">
-
   <div class="container">
     <div class="title"> <a href="assets#"> <i class="fas fa-arrow-left"></i> </a>
       <h1>Настольный теннис на 1905 года</h1>
@@ -53,6 +51,88 @@ Findsport.uz
       </div>
     </div>
   </div>
+
+  <div class="container">
+    <div class="table">
+      <table class="content-table">
+        <thead id="header">
+          <tr>
+            <th> </th>
+            <th>MONDAY</th>
+            <th>TUESDAY</th>
+            <th>WEDNESDAY</th>
+            <th>THURSDAY</th>
+            <th>FRIDAY</th>
+            <th>SATURDAY</th>
+            <th>SUNDAY</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>8:00</td>
+            <td>1</td>
+            <td>dominic</td>
+            <td>80</td>
+            <td>hookie</td>
+            <td>dominic</td>
+            <td>80</td>
+            <td>hookie</td>
+          </tr>
+          <tr>
+            <td>8:30</td>
+            <td>2</td>
+            <td>taylor</td>
+            <td>70</td>
+            <td>tread</td>
+            <td>taylor</td>
+            <td>70</td>
+            <td>tread</td>
+          </tr>
+          <tr>
+            <td>9:00</td>
+            <td>3</td>
+            <td>hardgoy</td>
+            <td>50</td>
+            <td>bruhdah</td>
+            <td>hardgoy</td>
+            <td>50</td>
+            <td>bruhdah</td>
+          </tr>
+          <tr>
+            <td>9:30</td>
+            <td>4</td>
+            <td>tablizad</td>
+            <td>47</td>
+            <td>topidep</td>
+            <td>tablizad</td>
+            <td>47</td>
+            <td>topidep</td>
+          </tr>
+          <tr>
+            <td>10:00</td>
+            <td>5</td>
+            <td>tayloans</td>
+            <td>43</td>
+            <td>headoo</td>
+            <td>tayloans</td>
+            <td>43</td>
+            <td>headoo</td>
+          </tr>
+          <tr>
+            <td>10:30</td>
+            <td>6</td>
+            <td>dotched</td>
+            <td>09</td>
+            <td>dokie</td>
+            <td>dotched</td>
+            <td>09</td>
+            <td>dokie</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   <div class="payment">
     <div class="container">
       <div class="row">
@@ -79,6 +159,7 @@ Findsport.uz
       </div>
     </div>
   </div>
+
   <div class="content">
     <div class="container">
       <p> Футбольный манеж Комсомольский - это крытое футбольное поле размером 38*18 с качественным покрытием искусственная трава последнего поколения, оптимально подходит для игры 5 на 5. В манеже есть большая теплая раздевалка, шкафчики для хранения вещей, душевые. На время игры предоставляется весь необходимый инвентарь: мячи, манишки. </p>
@@ -111,6 +192,8 @@ Findsport.uz
     <div class="wrapper">
     </div>
   </div>
+
+
 </main>
 
 <?php $__env->stopSection(); ?>
@@ -118,4 +201,4 @@ Findsport.uz
 <?php $__env->startSection('js'); ?>
 <script src="<?php echo e(asset('assets/inner.809837ad.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/main.1a031342.js')); ?>"></script>
-<?php $__env->stopSection(); ?><?php /**PATH C:\xampp\htdocs\findsport_back\resources\views/frontend/inner.blade.php ENDPATH**/ ?>
+<?php $__env->stopSection(); ?><?php /**PATH C:\xampp\htdocs\findsport_back\resources\views/frontend/section_inner.blade.php ENDPATH**/ ?>

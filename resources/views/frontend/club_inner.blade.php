@@ -7,7 +7,9 @@ Findsport.uz
 @endsection
 
 @section('content')
+
 <main style="margin-top:120px;">
+
   <div class="container">
     <div class="title"> <a href="assets#"> <i class="fas fa-arrow-left"></i> </a>
       <h1>Настольный теннис на 1905 года</h1>
@@ -108,7 +110,6 @@ Findsport.uz
     <div class="backdrop"></div>
     <div class="wrapper">
     </div>
-
   </div>
 </main>
 
