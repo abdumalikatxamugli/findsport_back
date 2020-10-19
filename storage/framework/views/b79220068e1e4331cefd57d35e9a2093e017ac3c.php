@@ -35,7 +35,7 @@
                 </div>
             </form>
             <?php $__currentLoopData = $iterable; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$place): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <a href="#" class="item">
+            <a href="<?php echo e(route('place',['l'=>$l, 'id'=>$place->id])); ?>" class="item">
                 <div class="img"> 
                     <img 
                         src="<?php echo e(route('unimg')."?path=".urlencode($place->image)); ?>" 

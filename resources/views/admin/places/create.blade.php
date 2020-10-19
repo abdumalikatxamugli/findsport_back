@@ -33,7 +33,7 @@ $interval=[7, 22];
 		<br>
 	@endforeach
 	<br>
-	<label>price</label>
+	<label>Price</label>
 	<table>
 		<thead>
 			<th>Day/Hr</th>

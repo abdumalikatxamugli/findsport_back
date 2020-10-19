@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\User;
 use App\Places as Place;
+use App\SportMasterMap;
 use Illuminate\Support\Facades\Storage;
 
 Class Places{
@@ -32,9 +33,21 @@ Class Places{
 						$model->{$name}=$req->file($name)->store('places');
 						continue;
 					}
+					if($name=='sport'){
+						continue;
+					}
 					$model->{$name}=$value;
 				}
 				$model->save();
+				if($req->has('sport')){
+					foreach($req->input('sport') as $id=>$val){
+						$s_m_m=new SportMasterMap();
+						$s_m_m->sport_id=$id;
+						$s_m_m->master_id=$model->id;
+						$s_m_m->master_table='places';
+						$s_m_m->save();
+					}
+				}
 				return redirect()->route('places.list');
 				break;
 			default:
@@ -62,9 +75,25 @@ Class Places{
 						$model->{$name}=$req->file($name)->store('places');
 						continue;
 					}
+					if($name=='sport'){
+						continue;
+					}
 					$model->{$name}=$value;
 				}
 				$model->save();
+				if($req->has('sport')){
+					SportMasterMap::where([
+						'master_table'=>'places',
+						'master_id'=>$model->id
+					])->delete();
+					foreach($req->input('sport') as $id=>$val){
+						$s_m_m=new SportMasterMap();
+						$s_m_m->sport_id=$id;
+						$s_m_m->master_id=$model->id;
+						$s_m_m->master_table='places';
+						$s_m_m->save();
+					}
+				}
 				return redirect()->route('places.list');
 				break;
 			
@@ -74,6 +103,10 @@ Class Places{
 		}
 	}
 	public function delete(Request $req){
+		SportMasterMap::where([
+						'master_table'=>'places',
+						'master_id'=>$req->id
+					])->delete();
 		$place=Place::where(['id'=>$req->id])->first();
 		$place->delete();
 		return redirect()->route('places.list');

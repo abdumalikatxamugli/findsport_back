@@ -1,6 +1,6 @@
 @php
 use App\Clubs;
-
+use App\Sport;
 $langs=['uz', 'oz', 'ru'];
 $days=['Mon', "Tue", "Wed", "Thi", "Fri", "Sat", "Sun"];
 $interval=[7, 22];
@@ -76,7 +76,14 @@ $interval=[7, 22];
 		</div>
 		@endforeach
 	</div>
-	
+	<label>Occupations</label>
+	@foreach(Sport::all() as $index=>$sport)
+	<input type="checkbox" name="sport[{{$sport->id}}]"
+		{{isset($section->sports()[$sport->id])?"checked":null}}
+	>
+	{{json_decode($sport->title)->uz}}
+	@endforeach
+	<br>
 	<br>
 	<label>Club</label>
 	<select name="club_id">

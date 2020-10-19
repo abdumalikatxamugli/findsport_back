@@ -13,10 +13,25 @@ use App\Sport;
 
 class Frontend extends Controller
 {
+  private $langs=[
+      'uz'=>'Ўзбек',
+      'oz'=>"O'zbek",
+      'ru'=>"Русский"
+  ];
   private function view($file, $data=[], $req){
   	$data['body']="frontend.$file";
-    $data['l']=$req->l;
-  	return view('frontend.index', $data);
+    $l=$req->l;
+    $langs=$this->langs;
+    if($langs[$l]??false){
+      $inactive_langs=$langs;
+      unset($inactive_langs[$l]);
+      $data['inactive_langs']=$inactive_langs;
+      $data['langs']=$langs;
+      $data['l']=$l;
+    }else{
+      abort(404);
+    }
+    return view('frontend.index', $data);
   }
   public function home(Request $req){
   	$data['places']=Places::latest()->take(8)->get();    	
@@ -25,11 +40,11 @@ class Frontend extends Controller
   	return $this->view('home', $data, $req);
   }
   public function media(Request $req){
-   	$data['body']="frontend.media";
-  	return view('frontend.index',$data);
+    $data['body']="frontend.media";
+    return view('frontend.index',$data);
   } 
   public function places(Request $req){
-    
+
     $data['iterable']=Places::latest('id')->take(10)->get();
     return $this->view('places',$data, $req);
   }  

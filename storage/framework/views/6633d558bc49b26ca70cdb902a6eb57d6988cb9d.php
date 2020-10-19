@@ -34,24 +34,24 @@ Findsport.uz
         </div>
       </div>
     </form>
-    <?php $__currentLoopData = $iterable; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$place): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <a href="#" class="item">
+    <?php $__currentLoopData = $iterable; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$section): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <a href="<?php echo e(route('section',['l'=>$l, 'id'=>$section->id])); ?>" class="item">
       <div class="img">
-        <img src="<?php echo e(route('unimg')."?path=".urlencode($place->image)); ?>" alt="">
-        <span>от <?php echo e($place->get_min_price()); ?> UZS</span>
+        <img src="<?php echo e(route('unimg')."?path=".urlencode($section->image)); ?>" alt="">
+        <span>от <?php echo e($section->get_min_price()); ?> UZS</span>
       </div>
       <div class="content">
         <div>
-          <h6><?php echo e(json_decode($place->title)->$l); ?></h6>
+          <h6><?php echo e(json_decode($section->title)->$l); ?></h6>
           <span>
             <img src="<?php echo e(asset('assets/location.19cb9090.svg')); ?>" alt="location" title="Icon made by Freepik from www.flaticon.com">
-            <?php echo e(json_decode($place->address)->$l); ?>
+            <?php echo e(json_decode($section->address)->$l); ?>
 
           </span>
 
           <span>
             <img src="<?php echo e(asset('assets/metro.29e1953a.svg')); ?>" alt="metro" title="Icon made by Freepik from www.flaticon.com">
-            <?php echo e(json_decode($place->metro)->$l); ?>
+            <?php echo e(json_decode($section->metro)->$l); ?>
 
           </span>
         </div>

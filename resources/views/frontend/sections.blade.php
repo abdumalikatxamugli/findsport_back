@@ -34,23 +34,23 @@ Findsport.uz
         </div>
       </div>
     </form>
-    @foreach($iterable as $index=>$place)
-    <a href="#" class="item">
+    @foreach($iterable as $index=>$section)
+    <a href="{{route('section',['l'=>$l, 'id'=>$section->id])}}" class="item">
       <div class="img">
-        <img src="{{route('unimg')."?path=".urlencode($place->image)}}" alt="">
-        <span>от {{$place->get_min_price()}} UZS</span>
+        <img src="{{route('unimg')."?path=".urlencode($section->image)}}" alt="">
+        <span>от {{$section->get_min_price()}} UZS</span>
       </div>
       <div class="content">
         <div>
-          <h6>{{json_decode($place->title)->$l}}</h6>
+          <h6>{{json_decode($section->title)->$l}}</h6>
           <span>
             <img src="{{asset('assets/location.19cb9090.svg')}}" alt="location" title="Icon made by Freepik from www.flaticon.com">
-            {{json_decode($place->address)->$l}}
+            {{json_decode($section->address)->$l}}
           </span>
 
           <span>
             <img src="{{asset('assets/metro.29e1953a.svg')}}" alt="metro" title="Icon made by Freepik from www.flaticon.com">
-            {{json_decode($place->metro)->$l}}
+            {{json_decode($section->metro)->$l}}
           </span>
         </div>
         @if($index<10) <div class="new">

@@ -1,6 +1,6 @@
 <?php
 use App\Clubs;
-
+use App\Sport;
 $langs=['uz', 'oz', 'ru'];
 $days=['Mon', "Tue", "Wed", "Thi", "Fri", "Sat", "Sun"];
 $interval=[7, 22];
@@ -79,7 +79,16 @@ $interval=[7, 22];
 		</div>
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	</div>
-	
+	<label>Occupations</label>
+	<?php $__currentLoopData = Sport::all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$sport): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+	<input type="checkbox" name="sport[<?php echo e($sport->id); ?>]"
+		<?php echo e(isset($section->sports()[$sport->id])?"checked":null); ?>
+
+	>
+	<?php echo e(json_decode($sport->title)->uz); ?>
+
+	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+	<br>
 	<br>
 	<label>Club</label>
 	<select name="club_id">

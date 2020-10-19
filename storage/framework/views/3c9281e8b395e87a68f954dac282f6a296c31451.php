@@ -74,13 +74,11 @@ Findsport.uz
         <div class="capacity"> Вмещает игроков — <?php echo e($place->capacity); ?> </div>
         <hr>
         <div class="sport-tags">
-          <?php $__currentLoopData = json_decode($place->sport, true); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-              <?php if($sport=Sport::where(['id'=>$index])->first()): ?>
-                <span>
-                  <?php echo e(json_decode($sport->title)->$l); ?>
+          <?php $__currentLoopData = Sport::find($place->sports())->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <span>
+              <?php echo e(json_decode($val->title)->$l); ?>
 
-                </span>
-              <?php endif; ?>
+            </span>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         <hr>

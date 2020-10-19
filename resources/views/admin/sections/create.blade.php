@@ -26,6 +26,12 @@ $interval=[7, 22];
 	</textarea>
 	@endforeach	
 	<br>
+	<label>Occupations</label>
+	@foreach(Sport::all() as $index=>$sport)
+		<input type="checkbox" name="sport[{{$sport->id}}]">{{json_decode($sport->title)->uz}}
+		<br>
+	@endforeach
+	<br>
 	<label>Timetable</label>
 	<table>
 		<thead>

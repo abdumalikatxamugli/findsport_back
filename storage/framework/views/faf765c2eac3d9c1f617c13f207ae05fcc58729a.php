@@ -1,8 +1,12 @@
+<?php
+  use App\Places;
+  use App\Section;
+?>
 <?php $__env->startSection('title'); ?>
 Findsport.uz
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('css'); ?>
-<link rel="stylesheet" href="<?php echo e(asset('assets/main.c6596996.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('assets/main.c6596996.css')); ?>">
 <?php $__env->stopSection(); ?>
 
 <main>
@@ -168,11 +172,31 @@ Findsport.uz
 <section class="all-sports">
   <div class="container">
     <h2>Найдите то, что вам нужно</h2>
-    <nav> <a href="#" class="nav-link active" data-target="tab-1">Площадки</a> <a href="#" class="nav-link" data-target="tab-2">Занятия</a> <a href="#" class="nav-link" data-target="tab-3">Клубы</a> </nav>
+    <nav> 
+      <a href="#" class="nav-link active" data-target="tab-1">Площадки</a> 
+      <a href="#" class="nav-link" data-target="tab-2">Занятия</a> 
+      <a href="#" class="nav-link" data-target="tab-3">Клубы</a> 
+    </nav>
     <div class="tab-content">
-      <div class="tab active" data-tab="tab-1"> <a href="#">Бадминтон</a> <a href="#">Баскетбол</a> <a href="#">Волейбол</a> <a href="#">Единоборство</a> <a href="#">Йога</a> <a href="#">Сквош</a> <a href="#">Танцы</a> <a href="#">Теннис</a> <a href="#">Футбол</a> </div>
-      <div class="tab" data-tab="tab-2"> <a href="#">Баскетбол</a> <a href="#">Волейбол</a> <a href="#">Единоборство</a> <a href="#">Йога</a> <a href="#">Сквош</a> <a href="#">Танцы</a> <a href="#">Теннис</a> <a href="#">Футбол</a> </div>
-      <div class="tab" data-tab="tab-3"> <a href="#">Волейбол</a> <a href="#">Единоборство</a> <a href="#">Йога</a> <a href="#">Сквош</a> <a href="#">Танцы</a> <a href="#">Теннис</a> <a href="#">Футбол</a> </div>
+      <div class="tab active" data-tab="tab-1"> 
+        <?php $__currentLoopData = Places::get_all_sports(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p_sport): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <a href="#"><?php echo e(json_decode($p_sport->title)->$l); ?></a> 
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      </div>
+      <div class="tab" data-tab="tab-2"> 
+        <?php $__currentLoopData = Section::get_all_sports(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s_sport): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <a href="#"><?php echo e(json_decode($s_sport->title)->$l); ?></a> 
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      </div>
+      <div class="tab" data-tab="tab-3"> 
+        <a href="#">Волейбол</a> 
+        <a href="#">Единоборство</a> 
+        <a href="#">Йога</a> 
+        <a href="#">Сквош</a> 
+        <a href="#">Танцы</a> 
+        <a href="#">Теннис</a> 
+        <a href="#">Футбол</a> 
+      </div>
     </div>
   </div>
 </section>
@@ -180,4 +204,5 @@ Findsport.uz
 <?php $__env->startSection('js'); ?>
 <script src="<?php echo e(asset('assets/slick.min.ab04a41b.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/main.1a031342.js')); ?>"></script>
+
 <?php $__env->stopSection(); ?><?php /**PATH /opt/lampp/htdocs/findsport/resources/views/frontend/home.blade.php ENDPATH**/ ?>

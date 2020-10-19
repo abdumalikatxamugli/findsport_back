@@ -15,13 +15,24 @@
 <body>
 	<div class="modal">
 		<div class="backdrop"></div>
-		<form action="">
-			<div class="textarea"> <label for="message">Что не работает и как это должно работать?</label> <textarea id="message" rows="10"></textarea> </div>
-			<div class="inputs">
-				<div> <label for="name">Ваше имя</label> <input type="text" id="name"> </div>
-				<div> <label for="email">Ваш email</label> <input type="email" id="email"> </div>
+		<form action="{{route('create_message')}}" method="POST">
+			@csrf
+			<div class="textarea"> 
+				<label for="message">Что не работает и как это должно работать?</label> <textarea id="message" rows="10" name="message"  required></textarea> 
 			</div>
-			<div class="button"> <a href="#" class="btn">Отправить</a> </div>
+			<div class="inputs">
+				<div> 
+					<label for="name">Ваше имя</label> 
+					<input type="text" id="name" name="name" required> 
+				</div>
+				<div> 
+					<label for="email">Ваш email</label> 
+					<input type="email" id="email" name="email" required> 
+				</div>
+			</div>
+			<div class="button"> 
+				<button type="submit" class="btn">Отправить</button> 
+			</div>
 		</form>
 	</div>
 	<header>
@@ -52,8 +63,18 @@
 								</a> 
 							</li>
 						</ul>
-						<div class="dropdown"> <a href="#" class="dropdown-active"><i class="fas fa-globe"></i>&nbsp;Русский</a>
-							<div class="dropdown-items"> <a href="#">O'zbek</a> <a href="#">Ўзбек</a> </div>
+						<div class="dropdown"> 
+							<a href="#" class="dropdown-active">
+								<i class="fas fa-globe"></i>&nbsp;
+									{{$langs[$l]}}
+								</a>
+							<div class="dropdown-items"> 
+								@foreach($inactive_langs as $key=>$lang)
+								<a href="#" onclick="change_lang('{{$key}}')">
+									{{$lang}}
+								</a> 
+								@endforeach
+							</div>
 						</div>
 					</nav>
 				</div>
@@ -102,6 +123,15 @@
 	<script src="{{asset('assets/jquery-3.5.1.min.44ae8a5b.js')}}"></script>
 
 	@yield('js')
+
+	<script>
+		function change_lang(lang){
+			const full_url_array=window.location.href.split("#")[0].split("/");
+			full_url_array[5]=lang;
+			const new_url=full_url_array.join("/");
+			window.location.assign(new_url);
+		}
+	</script>
 </body>
 
 </html>

@@ -35,7 +35,7 @@
                 </div>
             </form>
             @foreach($iterable as $index=>$place)
-            <a href="#" class="item">
+            <a href="{{route('place',['l'=>$l, 'id'=>$place->id])}}" class="item">
                 <div class="img"> 
                     <img 
                         src="{{route('unimg')."?path=".urlencode($place->image)}}" 

@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Section as SectionModel;
 use Illuminate\Support\Facades\Storage;
+use App\SportMasterMap;
+
 
 Class Section{
 	private function view($file, $data=[]){
@@ -35,9 +37,21 @@ Class Section{
 					if($name=='image'){
 						continue;
 					}
+					if($name=='sport'){
+						continue;
+					}
 					$model->{$name}=$value;
 				}
 				$model->save();
+				if($req->has('sport')){
+					foreach($req->input('sport') as $id=>$val){
+						$s_m_m=new SportMasterMap();
+						$s_m_m->sport_id=$id;
+						$s_m_m->master_id=$model->id;
+						$s_m_m->master_table='sections';
+						$s_m_m->save();
+					}
+				}
 				if($req->has('trainers')){
 					$trainers=$req->input('trainers');
 					if($req->file('trainers')){
@@ -72,6 +86,9 @@ Class Section{
 				$fields=$req->all();
 				unset($fields['_token']);
 				foreach ($fields as $name => $value) {
+					if($name=='sport'){
+						continue;
+					}
 					if($name=="trainers"){
 						continue;
 					}
@@ -85,6 +102,19 @@ Class Section{
 					$model->{$name}=$value;
 				}
 				$model->save();
+				if($req->has('sport')){
+					SportMasterMap::where([
+						'master_table'=>'sections',
+						'master_id'=>$model->id
+					])->delete();
+					foreach($req->input('sport') as $id=>$val){
+						$s_m_m=new SportMasterMap();
+						$s_m_m->sport_id=$id;
+						$s_m_m->master_id=$model->id;
+						$s_m_m->master_table='sections';
+						$s_m_m->save();
+					}
+				}
 				if($req->has('image')){
 					Storage::delete("$model->image");
 					$model->image=$req->file('image')->store("sections/$model->id");
@@ -99,6 +129,10 @@ Class Section{
 		}
 	}
 	public function delete(Request $req){
+		SportMasterMap::where([
+						'master_table'=>'places',
+						'master_id'=>$req->id
+					])->delete();
 		$section=SectionModel::where(['id'=>$req->id])->first();
 		Storage::delete("$section->image");
 		Storage::deleteDirectory("sections/$section->id");

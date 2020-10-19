@@ -69,12 +69,10 @@ Findsport.uz
         <div class="capacity"> Вмещает игроков — {{$place->capacity}} </div>
         <hr>
         <div class="sport-tags">
-          @foreach(json_decode($place->sport, true) as $index=>$val)
-              @if($sport=Sport::where(['id'=>$index])->first())
-                <span>
-                  {{json_decode($sport->title)->$l}}
-                </span>
-              @endif
+          @foreach(Sport::find($place->sports())->all() as $index=>$val)
+            <span>
+              {{json_decode($val->title)->$l}}
+            </span>
           @endforeach
         </div>
         <hr>

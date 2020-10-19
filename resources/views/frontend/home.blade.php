@@ -1,8 +1,12 @@
+@php
+  use App\Places;
+  use App\Section;
+@endphp
 @section('title')
 Findsport.uz
 @endsection
 @section('css')
-<link rel="stylesheet" href="{{asset('assets/main.c6596996.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/main.c6596996.css')}}">
 @endsection
 
 <main>
@@ -166,11 +170,31 @@ Findsport.uz
 <section class="all-sports">
   <div class="container">
     <h2>Найдите то, что вам нужно</h2>
-    <nav> <a href="#" class="nav-link active" data-target="tab-1">Площадки</a> <a href="#" class="nav-link" data-target="tab-2">Занятия</a> <a href="#" class="nav-link" data-target="tab-3">Клубы</a> </nav>
+    <nav> 
+      <a href="#" class="nav-link active" data-target="tab-1">Площадки</a> 
+      <a href="#" class="nav-link" data-target="tab-2">Занятия</a> 
+      <a href="#" class="nav-link" data-target="tab-3">Клубы</a> 
+    </nav>
     <div class="tab-content">
-      <div class="tab active" data-tab="tab-1"> <a href="#">Бадминтон</a> <a href="#">Баскетбол</a> <a href="#">Волейбол</a> <a href="#">Единоборство</a> <a href="#">Йога</a> <a href="#">Сквош</a> <a href="#">Танцы</a> <a href="#">Теннис</a> <a href="#">Футбол</a> </div>
-      <div class="tab" data-tab="tab-2"> <a href="#">Баскетбол</a> <a href="#">Волейбол</a> <a href="#">Единоборство</a> <a href="#">Йога</a> <a href="#">Сквош</a> <a href="#">Танцы</a> <a href="#">Теннис</a> <a href="#">Футбол</a> </div>
-      <div class="tab" data-tab="tab-3"> <a href="#">Волейбол</a> <a href="#">Единоборство</a> <a href="#">Йога</a> <a href="#">Сквош</a> <a href="#">Танцы</a> <a href="#">Теннис</a> <a href="#">Футбол</a> </div>
+      <div class="tab active" data-tab="tab-1"> 
+        @foreach(Places::get_all_sports() as $p_sport)
+          <a href="#">{{json_decode($p_sport->title)->$l}}</a> 
+        @endforeach
+      </div>
+      <div class="tab" data-tab="tab-2"> 
+        @foreach(Section::get_all_sports() as $s_sport)
+          <a href="#">{{json_decode($s_sport->title)->$l}}</a> 
+        @endforeach
+      </div>
+      <div class="tab" data-tab="tab-3"> 
+        <a href="#">Волейбол</a> 
+        <a href="#">Единоборство</a> 
+        <a href="#">Йога</a> 
+        <a href="#">Сквош</a> 
+        <a href="#">Танцы</a> 
+        <a href="#">Теннис</a> 
+        <a href="#">Футбол</a> 
+      </div>
     </div>
   </div>
 </section>
@@ -178,4 +202,5 @@ Findsport.uz
 @section('js')
 <script src="{{asset('assets/slick.min.ab04a41b.js')}}"></script>
 <script src="{{asset('assets/main.1a031342.js')}}"></script>
+
 @endsection
