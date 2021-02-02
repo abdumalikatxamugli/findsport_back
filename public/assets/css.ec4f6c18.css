@@ -10898,11 +10898,12 @@ textarea:focus {
 }
 
 .dropdown .dropdown-items a {
-    margin-bottom: 12px
+    margin-bottom: 12px;
+    color: black;
 }
 
 .dropdown .dropdown-items a:last-child {
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 .btn {

@@ -19,3 +19,4 @@ parcelRequire = function (e, r, t, n) { var i, o = "function" == typeof parcelRe
   }, { "jquery": "juYr", "slick-carousel": "QAGU", "slick-carousel/slick/slick.css": "LG95", "./common": "Spqv" }]
 }, {}, ["FVPG"], null)
 //# sourceMappingURL=/main.1a031342.js.map
+
